@@ -45,7 +45,7 @@ namespace TourOperator.Forms.AllInsCompForm
 
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message + "\nbtnAddInsComp in add form company");
+                    MessageBox.Show(ex.Message + "\nbtnAddComp in AddInsCompform");
                 }
             }
         }

@@ -50,7 +50,7 @@ namespace TourOperator.Forms.AllCarrierCompany
 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message + "\nbtnEditeComp in edite form company");
+                MessageBox.Show(ex.Message + "\nbtnEditeComp in EditeCarrierCompanyForm");
             }
         }
 

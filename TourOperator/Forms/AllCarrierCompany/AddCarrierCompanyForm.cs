@@ -45,7 +45,7 @@ namespace TourOperator.Forms.AllCarrierCompany
 
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message + "\nbtnAddComp in add form company");
+                    MessageBox.Show(ex.Message + "\nbtnAddComp in AddCarrierCompany");
                 }
             }
         }

@@ -25,20 +25,19 @@ namespace TourOperator
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //if ((db.Clients.ToList().Find(x => txtBoxLogin.Text == x.Email && txtBoxPassword.Text == x.Password) != null))
-            //{
-            //    this.Visible = false;
-            //    MainForm mainForm = new MainForm();
-            //    mainForm.Show();
-            //}
+            if ((db.Clients.ToList().Find(x => txtBoxLogin.Text == x.Email && txtBoxPassword.Text == x.Password) != null))
+            {
+                this.Visible = false;
+                MainForm mainForm = new MainForm();
+                mainForm.Show();
+            }
 
-            //else
-            //    ShowTitle();
+            else
+                ShowTitle();
 
-            this.Visible = false;
-            MainForm mainForm = new MainForm();
-            mainForm.Show();
-
+            //this.Visible = false;
+            //MainForm mainForm = new MainForm();
+            //mainForm.Show();
         }
 
         async void ShowTitle()
