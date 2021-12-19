@@ -291,7 +291,6 @@
       <DependentUpon>TourOperatorModel.edmx</DependentUpon>
       <LastGenOutput>TourOperatorModel.cs</LastGenOutput>
     </Content>
-    <Content Include="Sources\kisspng-computer-icons-x-icon-5b1513337946b3.7585139715281078274968.jpg" />
     <Content Include="Sources\pngwing.com.png" />
   </ItemGroup>
   <ItemGroup>
