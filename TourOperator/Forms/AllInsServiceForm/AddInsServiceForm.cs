@@ -18,7 +18,7 @@ namespace TourOperator.Forms.AllInsServiceForm
         private int _idCompany;
         public int IdCompany { get => _idCompany; set => _idCompany = value; }
 
-        private TourOperatorEntities db = Helper.GetContext();
+        readonly private TourOperatorEntities db = Helper.GetContext();
         public AddInsServiceForm(int Id)
         {
             InitializeComponent();
@@ -36,14 +36,14 @@ namespace TourOperator.Forms.AllInsServiceForm
             {
                 try
                 {
-                    ServicesInsuranceCompany InsService = new ServicesInsuranceCompany();
+                    ServicesInsuranceCompany InsService = new ServicesInsuranceCompany
+                    {
+                        Service = txtBoxService.Text,
+                        Description = txtBoxDescription.Text,
+                        IdInsuranceCompany = IdCompany
+                    };
 
-                    InsService.Service = txtBoxService.Text;
-                    InsService.Description = txtBoxDescription.Text;
-                    InsService.IdInsuranceCompany = IdCompany;
-
-                    decimal Cost;
-                    decimal.TryParse(txtBoxCost.Text, out Cost);
+                    decimal.TryParse(txtBoxCost.Text, out decimal Cost);
                     InsService.Cost = Cost;
 
                     db.ServicesInsuranceCompany.Add(InsService);

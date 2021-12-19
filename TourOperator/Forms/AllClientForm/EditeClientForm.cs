@@ -15,7 +15,7 @@ namespace TourOperator.Forms.AllClientForm
     public partial class EditeClientForm : Form
     {
         private int _id;
-        private TourOperatorEntities db = Helper.GetContext();
+        readonly private TourOperatorEntities db = Helper.GetContext();
         public int Id { get => _id; set => _id = value; }
 
         public EditeClientForm(int id)

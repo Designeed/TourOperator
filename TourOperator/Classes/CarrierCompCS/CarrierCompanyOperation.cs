@@ -12,7 +12,7 @@ namespace TourOperator.Classes.CarrierCompCS
 {
     class CarrierCompanyOperation
     {
-        private static TourOperatorEntities db = Helper.GetContext();
+        readonly private static TourOperatorEntities db = Helper.GetContext();
         public static void AddCompany(ListView listView)
         {
             try

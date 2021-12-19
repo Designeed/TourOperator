@@ -17,7 +17,7 @@ namespace TourOperator.Forms.AllCarrierServiceForm
         private int _id;
         public int IdService { get => _id; set => _id = value; }
 
-        private TourOperatorEntities db = Helper.GetContext();
+        readonly private TourOperatorEntities db = Helper.GetContext();
         public EditeCarrierServiceForm(int Id)
         {
             InitializeComponent();
@@ -44,8 +44,7 @@ namespace TourOperator.Forms.AllCarrierServiceForm
                 carrierService.Service = txtBoxService.Text;
                 carrierService.Description = txtBoxDescription.Text;
 
-                decimal Cost;
-                decimal.TryParse(txtBoxCost.Text, out Cost);
+                decimal.TryParse(txtBoxCost.Text, out decimal Cost);
                 carrierService.Cost = Cost;
 
                 db.SaveChanges();

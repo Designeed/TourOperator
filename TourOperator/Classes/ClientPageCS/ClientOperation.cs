@@ -11,8 +11,7 @@ namespace TourOperator.Classes.ClientPageCS
 {
     class ClientOperation
     {
-        private static TourOperatorEntities db = Helper.GetContext();
-
+        readonly private static TourOperatorEntities db = Helper.GetContext();
         public static void AddClient(ListView listView)
         {
             try
@@ -36,7 +35,6 @@ namespace TourOperator.Classes.ClientPageCS
                 MessageBox.Show(ex.Message + "\nClientOperation.AddClient");
             }
         }
-
         public static void EditeClient(ListView listView)
         {
             try

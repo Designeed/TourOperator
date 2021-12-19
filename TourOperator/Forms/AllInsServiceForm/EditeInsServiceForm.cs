@@ -18,7 +18,7 @@ namespace TourOperator.Forms.AllInsServiceForm
         private int _id;
         public int IdService { get => _id; set => _id = value; }
 
-        private TourOperatorEntities db = Helper.GetContext();
+        readonly private TourOperatorEntities db = Helper.GetContext();
 
         public EditeInsServiceForm(int Id)
         {
@@ -45,8 +45,7 @@ namespace TourOperator.Forms.AllInsServiceForm
                 insService.Service = txtBoxService.Text;
                 insService.Description = txtBoxDescription.Text;
 
-                decimal Cost;
-                decimal.TryParse(txtBoxCost.Text, out Cost);
+                decimal.TryParse(txtBoxCost.Text, out decimal Cost);
                 insService.Cost = Cost;
 
                 db.SaveChanges();

@@ -8,7 +8,7 @@ namespace TourOperator.Forms
 {
     public partial class AddClientForm : Form
     {
-        private TourOperatorEntities db = Helper.GetContext();
+        readonly private TourOperatorEntities db = Helper.GetContext();
 
         public AddClientForm()
         {
@@ -28,15 +28,16 @@ namespace TourOperator.Forms
             {
                 try
                 {
-                    Clients client = new Clients();
-
-                    client.FirstName = txtBoxFirstName.Text;
-                    client.SecondName = txtBoxSecondName.Text;
-                    client.Country = txtBoxCountry.Text;
-                    client.City = txtBoxCity.Text;
-                    client.Phone = txtBoxPhone.Text;
-                    client.Email = txtBoxEmail.Text;
-                    client.Password = txtBoxPassword.Text;
+                    Clients client = new Clients
+                    {
+                        FirstName = txtBoxFirstName.Text,
+                        SecondName = txtBoxSecondName.Text,
+                        Country = txtBoxCountry.Text,
+                        City = txtBoxCity.Text,
+                        Phone = txtBoxPhone.Text,
+                        Email = txtBoxEmail.Text,
+                        Password = txtBoxPassword.Text
+                    };
 
                     db.Clients.Add(client);
                     db.SaveChanges();

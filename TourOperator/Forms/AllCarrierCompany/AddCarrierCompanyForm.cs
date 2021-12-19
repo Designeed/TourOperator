@@ -15,7 +15,7 @@ namespace TourOperator.Forms.AllCarrierCompany
 {
     public partial class AddCarrierCompanyForm : Form
     {
-        private TourOperatorEntities db = Helper.GetContext();
+        readonly private TourOperatorEntities db = Helper.GetContext();
         public AddCarrierCompanyForm()
         {
             InitializeComponent();
@@ -31,10 +31,11 @@ namespace TourOperator.Forms.AllCarrierCompany
             {
                 try
                 {
-                    CarrierCompany carrierCompany = new CarrierCompany();
-
-                    carrierCompany.CompanyName = txtBoxNameComp.Text;
-                    carrierCompany.Description = txtBoxDescription.Text;
+                    CarrierCompany carrierCompany = new CarrierCompany
+                    {
+                        CompanyName = txtBoxNameComp.Text,
+                        Description = txtBoxDescription.Text
+                    };
 
                     db.CarrierCompany.Add(carrierCompany);
                     db.SaveChanges();

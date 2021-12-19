@@ -17,7 +17,7 @@ namespace TourOperator.Forms.AllCarrierCompany
         private int _id;
         public int Id { get => _id; set => _id = value; }
 
-        private TourOperatorEntities db = Helper.GetContext();
+        readonly private TourOperatorEntities db = Helper.GetContext();
         public EditeCarrierCompanyForm(int id )
         {
             InitializeComponent();

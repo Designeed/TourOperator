@@ -15,7 +15,7 @@ namespace TourOperator.Forms.AllInsCompForm
 {
     public partial class AddInsCompForm : Form
     {
-        private TourOperatorEntities db = Helper.GetContext();
+        readonly private TourOperatorEntities db = Helper.GetContext();
         public AddInsCompForm()
         {
             InitializeComponent();
@@ -31,10 +31,11 @@ namespace TourOperator.Forms.AllInsCompForm
             {
                 try
                 {
-                    InsuranceCompany InsComp = new InsuranceCompany();
-
-                    InsComp.CompanyName = txtBoxNameComp.Text;
-                    InsComp.Description = txtBoxDescription.Text;
+                    InsuranceCompany InsComp = new InsuranceCompany
+                    {
+                        CompanyName = txtBoxNameComp.Text,
+                        Description = txtBoxDescription.Text
+                    };
 
                     db.InsuranceCompany.Add(InsComp);
                     db.SaveChanges();

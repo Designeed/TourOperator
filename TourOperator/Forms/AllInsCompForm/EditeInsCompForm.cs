@@ -17,7 +17,7 @@ namespace TourOperator.Forms.AllInsCompForm
         private int _id;
         public int Id { get => _id; set => _id = value; }
 
-        private TourOperatorEntities db = Helper.GetContext();
+        readonly private TourOperatorEntities db = Helper.GetContext();
         public EditeInsCompForm(int id)
         {
             InitializeComponent();

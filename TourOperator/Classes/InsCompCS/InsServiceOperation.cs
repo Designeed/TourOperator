@@ -15,7 +15,7 @@ namespace TourOperator.Classes.InsCompCS
         private static int _idCompany;
         public static int IdCompany { get => _idCompany; set => _idCompany = value; }
 
-        private static TourOperatorEntities db = Helper.GetContext();
+        readonly private static TourOperatorEntities db = Helper.GetContext();
 
         public static void AddService(ListView listView, int Id)
         {

@@ -16,7 +16,7 @@ namespace TourOperator
 {
     public partial class AuthFrom : Form
     {
-        private TourOperatorEntities db = Helper.GetContext();
+        readonly private TourOperatorEntities db = Helper.GetContext();
         public AuthFrom()
         {
             InitializeComponent();

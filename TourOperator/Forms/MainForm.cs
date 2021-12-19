@@ -18,7 +18,7 @@ namespace TourOperator.Forms
 {
     public partial class MainForm : Form
     {
-        private TourOperatorEntities db = Helper.GetContext();
+        readonly private TourOperatorEntities db = Helper.GetContext();
         private int _idCompany;
         public int IdCompany { get => _idCompany; set => _idCompany = value; }
 
