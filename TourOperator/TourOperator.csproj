@@ -1,0 +1,302 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{209103D5-C33D-405E-B9AD-2262C2CEFFAC}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>TourOperator</RootNamespace>
+    <AssemblyName>TourOperator</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\CarrierCompCS\CarrierCompanyOperation.cs" />
+    <Compile Include="Classes\CarrierCompCS\CarrierServiceOperation.cs" />
+    <Compile Include="Classes\ClientPageCS\ClientOperation.cs" />
+    <Compile Include="Classes\DataConnection\Helper.cs" />
+    <Compile Include="Classes\InsCompCS\InsCompOperation.cs" />
+    <Compile Include="Classes\InsCompCS\InsServiceOperation.cs" />
+    <Compile Include="Classes\Validation.cs" />
+    <Compile Include="Data\Bascket.cs">
+      <DependentUpon>TourOperatorModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CarrierCompany.cs">
+      <DependentUpon>TourOperatorModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Clients.cs">
+      <DependentUpon>TourOperatorModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\HotelInformation.cs">
+      <DependentUpon>TourOperatorModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\HotelPhotos.cs">
+      <DependentUpon>TourOperatorModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\HotelRoomPhotos.cs">
+      <DependentUpon>TourOperatorModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\HotelRooms.cs">
+      <DependentUpon>TourOperatorModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\HotelsRating.cs">
+      <DependentUpon>TourOperatorModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\InsuranceCompany.cs">
+      <DependentUpon>TourOperatorModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\PaidServices.cs">
+      <DependentUpon>TourOperatorModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ReviewType.cs">
+      <DependentUpon>TourOperatorModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ServicesCarrierCompany.cs">
+      <DependentUpon>TourOperatorModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ServicesInsuranceCompany.cs">
+      <DependentUpon>TourOperatorModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ServicesRating.cs">
+      <DependentUpon>TourOperatorModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sysdiagrams.cs">
+      <DependentUpon>TourOperatorModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\TourOperatorModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TourOperatorModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\TourOperatorModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TourOperatorModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\TourOperatorModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TourOperatorModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tours.cs">
+      <DependentUpon>TourOperatorModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ToursRating.cs">
+      <DependentUpon>TourOperatorModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ToursReg.cs">
+      <DependentUpon>TourOperatorModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AllCarrierCompany\AddCarrierCompanyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AllCarrierCompany\AddCarrierCompanyForm.Designer.cs">
+      <DependentUpon>AddCarrierCompanyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AllCarrierCompany\EditeCarrierCompanyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AllCarrierCompany\EditeCarrierCompanyForm.Designer.cs">
+      <DependentUpon>EditeCarrierCompanyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AllCarrierServiceForm\AddCarrierServiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AllCarrierServiceForm\AddCarrierServiceForm.Designer.cs">
+      <DependentUpon>AddCarrierServiceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AllCarrierServiceForm\EditeCarrierServiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AllCarrierServiceForm\EditeCarrierServiceForm.Designer.cs">
+      <DependentUpon>EditeCarrierServiceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AllClientForm\AddClientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AllClientForm\AddClientForm.Designer.cs">
+      <DependentUpon>AddClientForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AllClientForm\EditeClientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AllClientForm\EditeClientForm.Designer.cs">
+      <DependentUpon>EditeClientForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AllInsCompForm\AddInsCompForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AllInsCompForm\AddInsCompForm.Designer.cs">
+      <DependentUpon>AddInsCompForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AllInsCompForm\EditeInsCompForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AllInsCompForm\EditeInsCompForm.Designer.cs">
+      <DependentUpon>EditeInsCompForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AllInsServiceForm\AddInsServiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AllInsServiceForm\AddInsServiceForm.Designer.cs">
+      <DependentUpon>AddInsServiceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AllInsServiceForm\EditeInsServiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AllInsServiceForm\EditeInsServiceForm.Designer.cs">
+      <DependentUpon>EditeInsServiceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AuthFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AuthFrom.Designer.cs">
+      <DependentUpon>AuthFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RegForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RegForm.Designer.cs">
+      <DependentUpon>RegForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\AllCarrierCompany\AddCarrierCompanyForm.resx">
+      <DependentUpon>AddCarrierCompanyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AllCarrierCompany\EditeCarrierCompanyForm.resx">
+      <DependentUpon>EditeCarrierCompanyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AllCarrierServiceForm\AddCarrierServiceForm.resx">
+      <DependentUpon>AddCarrierServiceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AllCarrierServiceForm\EditeCarrierServiceForm.resx">
+      <DependentUpon>EditeCarrierServiceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AllClientForm\AddClientForm.resx">
+      <DependentUpon>AddClientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AllClientForm\EditeClientForm.resx">
+      <DependentUpon>EditeClientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AllInsCompForm\AddInsCompForm.resx">
+      <DependentUpon>AddInsCompForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AllInsCompForm\EditeInsCompForm.resx">
+      <DependentUpon>EditeInsCompForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AllInsServiceForm\AddInsServiceForm.resx">
+      <DependentUpon>AddInsServiceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AllInsServiceForm\EditeInsServiceForm.resx">
+      <DependentUpon>EditeInsServiceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AuthFrom.resx">
+      <DependentUpon>AuthFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RegForm.resx">
+      <DependentUpon>RegForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EntityDeploy Include="Data\TourOperatorModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TourOperatorModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Data\TourOperatorModel.edmx.diagram">
+      <DependentUpon>TourOperatorModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\TourOperatorModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TourOperatorModel.edmx</DependentUpon>
+      <LastGenOutput>TourOperatorModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Data\TourOperatorModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TourOperatorModel.edmx</DependentUpon>
+      <LastGenOutput>TourOperatorModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Sources\kisspng-computer-icons-x-icon-5b1513337946b3.7585139715281078274968.jpg" />
+    <Content Include="Sources\pngwing.com.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

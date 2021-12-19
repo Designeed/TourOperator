@@ -1,0 +1,1460 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище TourOperatorModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bascket">
+          <Key>
+            <PropertyRef Name="IdBascket" />
+          </Key>
+          <Property Name="IdBascket" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdClient" Type="int" />
+          <Property Name="CodeHotel" Type="int" />
+        </EntityType>
+        <EntityType Name="CarrierCompany">
+          <Key>
+            <PropertyRef Name="IdCarrierCompany" />
+          </Key>
+          <Property Name="IdCarrierCompany" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="IdClient" />
+          </Key>
+          <Property Name="IdClient" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="SecondName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Country" Type="nvarchar" MaxLength="255" />
+          <Property Name="City" Type="nvarchar" MaxLength="255" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="11" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HotelInformation">
+          <Key>
+            <PropertyRef Name="IdHotel" />
+          </Key>
+          <Property Name="IdHotel" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HotelName" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="HotelCountry" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ResortTitle" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="HotelDescription" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="HotelStar" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="TypeFood" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="HotelServices" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="HotelRating" Type="int" Nullable="false" />
+          <Property Name="Services" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MainPhotoDirectory" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HotelPhotos">
+          <Key>
+            <PropertyRef Name="IdPhotoDirectory" />
+          </Key>
+          <Property Name="IdPhotoDirectory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdHotel" Type="int" Nullable="false" />
+          <Property Name="PhotoDirectory" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="HotelRoomPhotos">
+          <Key>
+            <PropertyRef Name="IdPhotoDirectory" />
+          </Key>
+          <Property Name="IdPhotoDirectory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdHotelRoom" Type="int" Nullable="false" />
+          <Property Name="PhotoDirectory" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="HotelRooms">
+          <Key>
+            <PropertyRef Name="IdHotelRoom" />
+          </Key>
+          <Property Name="IdHotelRoom" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdHotel" Type="int" Nullable="false" />
+          <Property Name="RoomNumber" Type="int" Nullable="false" />
+          <Property Name="RoomStar" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="CostRoomDay" Type="money" Nullable="false" />
+          <Property Name="ReservationType" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="SeatsNumber" Type="int" Nullable="false" />
+          <Property Name="Equipment" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HotelsRating">
+          <Key>
+            <PropertyRef Name="IdHotelRating" />
+          </Key>
+          <Property Name="IdHotelRating" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdHotel" Type="int" Nullable="false" />
+          <Property Name="IdClient" Type="int" Nullable="false" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="400" />
+          <Property Name="Rating" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="IdReview" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InsuranceCompany">
+          <Key>
+            <PropertyRef Name="IdInsuranceCompany" />
+          </Key>
+          <Property Name="IdInsuranceCompany" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PaidServices">
+          <Key>
+            <PropertyRef Name="IdPaidServices" />
+          </Key>
+          <Property Name="IdPaidServices" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdClient" Type="int" Nullable="false" />
+          <Property Name="IdIncuranceService" Type="int" Nullable="false" />
+          <Property Name="IdCarrierService" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ReviewType">
+          <Key>
+            <PropertyRef Name="IdReview" />
+          </Key>
+          <Property Name="IdReview" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeReview" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ServicesCarrierCompany">
+          <Key>
+            <PropertyRef Name="IdCarrierService" />
+          </Key>
+          <Property Name="IdCarrierService" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCarrierCompany" Type="int" Nullable="false" />
+          <Property Name="Service" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" />
+          <Property Name="Cost" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ServicesInsuranceCompany">
+          <Key>
+            <PropertyRef Name="IdIncuranceService" />
+          </Key>
+          <Property Name="IdIncuranceService" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdInsuranceCompany" Type="int" Nullable="false" />
+          <Property Name="Service" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" />
+          <Property Name="Cost" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ServicesRating">
+          <Key>
+            <PropertyRef Name="IdServiceRating" />
+          </Key>
+          <Property Name="IdServiceRating" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdService" Type="int" Nullable="false" />
+          <Property Name="IdClient" Type="int" Nullable="false" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="300" />
+          <Property Name="Rating" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="IdReview" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Tours">
+          <Key>
+            <PropertyRef Name="IdTour" />
+          </Key>
+          <Property Name="IdTour" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameTour" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="200" />
+          <Property Name="Cost" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ToursRating">
+          <Key>
+            <PropertyRef Name="IdTourRating" />
+          </Key>
+          <Property Name="IdTourRating" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdTour" Type="int" Nullable="false" />
+          <Property Name="IdClient" Type="int" Nullable="false" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="300" />
+          <Property Name="Rating" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="IdReview" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ToursReg">
+          <Key>
+            <PropertyRef Name="IdTour" />
+          </Key>
+          <Property Name="IdTour" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdClient" Type="int" Nullable="false" />
+          <Property Name="IdHotel" Type="int" Nullable="false" />
+          <Property Name="IdHotelRoom" Type="int" Nullable="false" />
+          <Property Name="PeopleNumber" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="DateStart" Type="date" Nullable="false" />
+          <Property Name="DateEnd" Type="date" Nullable="false" />
+          <Property Name="IdPaidServices" Type="int" Nullable="false" />
+          <Property Name="TotalCost" Type="money" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Bascket_Clients">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Bascket" Type="Self.Bascket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="IdClient" />
+            </Principal>
+            <Dependent Role="Bascket">
+              <PropertyRef Name="IdClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HotelPhotos_HotelInformation">
+          <End Role="HotelInformation" Type="Self.HotelInformation" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="HotelPhotos" Type="Self.HotelPhotos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HotelInformation">
+              <PropertyRef Name="IdHotel" />
+            </Principal>
+            <Dependent Role="HotelPhotos">
+              <PropertyRef Name="IdHotel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HotelRoomPhotos_HotelRooms">
+          <End Role="HotelRooms" Type="Self.HotelRooms" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="HotelRoomPhotos" Type="Self.HotelRoomPhotos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HotelRooms">
+              <PropertyRef Name="IdHotelRoom" />
+            </Principal>
+            <Dependent Role="HotelRoomPhotos">
+              <PropertyRef Name="IdHotelRoom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HotelRooms_HotelInformation">
+          <End Role="HotelInformation" Type="Self.HotelInformation" Multiplicity="1" />
+          <End Role="HotelRooms" Type="Self.HotelRooms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HotelInformation">
+              <PropertyRef Name="IdHotel" />
+            </Principal>
+            <Dependent Role="HotelRooms">
+              <PropertyRef Name="IdHotel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HotelsRating_Clients">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="HotelsRating" Type="Self.HotelsRating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="IdClient" />
+            </Principal>
+            <Dependent Role="HotelsRating">
+              <PropertyRef Name="IdClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HotelsRating_HotelInformation">
+          <End Role="HotelInformation" Type="Self.HotelInformation" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="HotelsRating" Type="Self.HotelsRating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HotelInformation">
+              <PropertyRef Name="IdHotel" />
+            </Principal>
+            <Dependent Role="HotelsRating">
+              <PropertyRef Name="IdHotel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HotelsRating_ReviewType">
+          <End Role="ReviewType" Type="Self.ReviewType" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="HotelsRating" Type="Self.HotelsRating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReviewType">
+              <PropertyRef Name="IdReview" />
+            </Principal>
+            <Dependent Role="HotelsRating">
+              <PropertyRef Name="IdReview" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PaidServices_Clients">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PaidServices" Type="Self.PaidServices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="IdClient" />
+            </Principal>
+            <Dependent Role="PaidServices">
+              <PropertyRef Name="IdClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PaidServices_ServicesCarrierCompany">
+          <End Role="ServicesCarrierCompany" Type="Self.ServicesCarrierCompany" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PaidServices" Type="Self.PaidServices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServicesCarrierCompany">
+              <PropertyRef Name="IdCarrierService" />
+            </Principal>
+            <Dependent Role="PaidServices">
+              <PropertyRef Name="IdCarrierService" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PaidServices_ServicesInsuranceCompany">
+          <End Role="ServicesInsuranceCompany" Type="Self.ServicesInsuranceCompany" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PaidServices" Type="Self.PaidServices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServicesInsuranceCompany">
+              <PropertyRef Name="IdIncuranceService" />
+            </Principal>
+            <Dependent Role="PaidServices">
+              <PropertyRef Name="IdIncuranceService" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServicesCarrierCompany_CarrierCompany">
+          <End Role="CarrierCompany" Type="Self.CarrierCompany" Multiplicity="1" />
+          <End Role="ServicesCarrierCompany" Type="Self.ServicesCarrierCompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarrierCompany">
+              <PropertyRef Name="IdCarrierCompany" />
+            </Principal>
+            <Dependent Role="ServicesCarrierCompany">
+              <PropertyRef Name="IdCarrierCompany" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServicesInsuranceCompany_InsuranceCompany">
+          <End Role="InsuranceCompany" Type="Self.InsuranceCompany" Multiplicity="1" />
+          <End Role="ServicesInsuranceCompany" Type="Self.ServicesInsuranceCompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InsuranceCompany">
+              <PropertyRef Name="IdInsuranceCompany" />
+            </Principal>
+            <Dependent Role="ServicesInsuranceCompany">
+              <PropertyRef Name="IdInsuranceCompany" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServicesRating_Clients">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ServicesRating" Type="Self.ServicesRating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="IdClient" />
+            </Principal>
+            <Dependent Role="ServicesRating">
+              <PropertyRef Name="IdClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServicesRating_ReviewType">
+          <End Role="ReviewType" Type="Self.ReviewType" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ServicesRating" Type="Self.ServicesRating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReviewType">
+              <PropertyRef Name="IdReview" />
+            </Principal>
+            <Dependent Role="ServicesRating">
+              <PropertyRef Name="IdReview" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tours_Clients">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+          <End Role="ToursReg" Type="Self.ToursReg" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="IdClient" />
+            </Principal>
+            <Dependent Role="ToursReg">
+              <PropertyRef Name="IdClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tours_HotelInformation">
+          <End Role="HotelInformation" Type="Self.HotelInformation" Multiplicity="1" />
+          <End Role="ToursReg" Type="Self.ToursReg" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HotelInformation">
+              <PropertyRef Name="IdHotel" />
+            </Principal>
+            <Dependent Role="ToursReg">
+              <PropertyRef Name="IdHotel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tours_HotelRooms">
+          <End Role="HotelRooms" Type="Self.HotelRooms" Multiplicity="1" />
+          <End Role="ToursReg" Type="Self.ToursReg" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HotelRooms">
+              <PropertyRef Name="IdHotelRoom" />
+            </Principal>
+            <Dependent Role="ToursReg">
+              <PropertyRef Name="IdHotelRoom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tours_PaidServices">
+          <End Role="PaidServices" Type="Self.PaidServices" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ToursReg" Type="Self.ToursReg" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaidServices">
+              <PropertyRef Name="IdPaidServices" />
+            </Principal>
+            <Dependent Role="ToursReg">
+              <PropertyRef Name="IdPaidServices" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ToursRating_Clients">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ToursRating" Type="Self.ToursRating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="IdClient" />
+            </Principal>
+            <Dependent Role="ToursRating">
+              <PropertyRef Name="IdClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ToursRating_ReviewType">
+          <End Role="ReviewType" Type="Self.ReviewType" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ToursRating" Type="Self.ToursRating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReviewType">
+              <PropertyRef Name="IdReview" />
+            </Principal>
+            <Dependent Role="ToursRating">
+              <PropertyRef Name="IdReview" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ToursRating_Tours">
+          <End Role="Tours" Type="Self.Tours" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ToursRating" Type="Self.ToursRating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tours">
+              <PropertyRef Name="IdTour" />
+            </Principal>
+            <Dependent Role="ToursRating">
+              <PropertyRef Name="IdTour" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ToursReg_Tours">
+          <End Role="Tours" Type="Self.Tours" Multiplicity="1" />
+          <End Role="ToursReg" Type="Self.ToursReg" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Tours">
+              <PropertyRef Name="IdTour" />
+            </Principal>
+            <Dependent Role="ToursReg">
+              <PropertyRef Name="IdTour" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище TourOperatorModelContainer">
+          <EntitySet Name="Bascket" EntityType="Self.Bascket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarrierCompany" EntityType="Self.CarrierCompany" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HotelInformation" EntityType="Self.HotelInformation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HotelPhotos" EntityType="Self.HotelPhotos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HotelRoomPhotos" EntityType="Self.HotelRoomPhotos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HotelRooms" EntityType="Self.HotelRooms" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HotelsRating" EntityType="Self.HotelsRating" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InsuranceCompany" EntityType="Self.InsuranceCompany" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaidServices" EntityType="Self.PaidServices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReviewType" EntityType="Self.ReviewType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ServicesCarrierCompany" EntityType="Self.ServicesCarrierCompany" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ServicesInsuranceCompany" EntityType="Self.ServicesInsuranceCompany" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ServicesRating" EntityType="Self.ServicesRating" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tours" EntityType="Self.Tours" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ToursRating" EntityType="Self.ToursRating" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ToursReg" EntityType="Self.ToursReg" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Bascket_Clients" Association="Self.FK_Bascket_Clients">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Bascket" EntitySet="Bascket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HotelPhotos_HotelInformation" Association="Self.FK_HotelPhotos_HotelInformation">
+            <End Role="HotelInformation" EntitySet="HotelInformation" />
+            <End Role="HotelPhotos" EntitySet="HotelPhotos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HotelRoomPhotos_HotelRooms" Association="Self.FK_HotelRoomPhotos_HotelRooms">
+            <End Role="HotelRooms" EntitySet="HotelRooms" />
+            <End Role="HotelRoomPhotos" EntitySet="HotelRoomPhotos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HotelRooms_HotelInformation" Association="Self.FK_HotelRooms_HotelInformation">
+            <End Role="HotelInformation" EntitySet="HotelInformation" />
+            <End Role="HotelRooms" EntitySet="HotelRooms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HotelsRating_Clients" Association="Self.FK_HotelsRating_Clients">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="HotelsRating" EntitySet="HotelsRating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HotelsRating_HotelInformation" Association="Self.FK_HotelsRating_HotelInformation">
+            <End Role="HotelInformation" EntitySet="HotelInformation" />
+            <End Role="HotelsRating" EntitySet="HotelsRating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HotelsRating_ReviewType" Association="Self.FK_HotelsRating_ReviewType">
+            <End Role="ReviewType" EntitySet="ReviewType" />
+            <End Role="HotelsRating" EntitySet="HotelsRating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PaidServices_Clients" Association="Self.FK_PaidServices_Clients">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="PaidServices" EntitySet="PaidServices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PaidServices_ServicesCarrierCompany" Association="Self.FK_PaidServices_ServicesCarrierCompany">
+            <End Role="ServicesCarrierCompany" EntitySet="ServicesCarrierCompany" />
+            <End Role="PaidServices" EntitySet="PaidServices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PaidServices_ServicesInsuranceCompany" Association="Self.FK_PaidServices_ServicesInsuranceCompany">
+            <End Role="ServicesInsuranceCompany" EntitySet="ServicesInsuranceCompany" />
+            <End Role="PaidServices" EntitySet="PaidServices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServicesCarrierCompany_CarrierCompany" Association="Self.FK_ServicesCarrierCompany_CarrierCompany">
+            <End Role="CarrierCompany" EntitySet="CarrierCompany" />
+            <End Role="ServicesCarrierCompany" EntitySet="ServicesCarrierCompany" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServicesInsuranceCompany_InsuranceCompany" Association="Self.FK_ServicesInsuranceCompany_InsuranceCompany">
+            <End Role="InsuranceCompany" EntitySet="InsuranceCompany" />
+            <End Role="ServicesInsuranceCompany" EntitySet="ServicesInsuranceCompany" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServicesRating_Clients" Association="Self.FK_ServicesRating_Clients">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="ServicesRating" EntitySet="ServicesRating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServicesRating_ReviewType" Association="Self.FK_ServicesRating_ReviewType">
+            <End Role="ReviewType" EntitySet="ReviewType" />
+            <End Role="ServicesRating" EntitySet="ServicesRating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tours_Clients" Association="Self.FK_Tours_Clients">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="ToursReg" EntitySet="ToursReg" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tours_HotelInformation" Association="Self.FK_Tours_HotelInformation">
+            <End Role="HotelInformation" EntitySet="HotelInformation" />
+            <End Role="ToursReg" EntitySet="ToursReg" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tours_HotelRooms" Association="Self.FK_Tours_HotelRooms">
+            <End Role="HotelRooms" EntitySet="HotelRooms" />
+            <End Role="ToursReg" EntitySet="ToursReg" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tours_PaidServices" Association="Self.FK_Tours_PaidServices">
+            <End Role="PaidServices" EntitySet="PaidServices" />
+            <End Role="ToursReg" EntitySet="ToursReg" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ToursRating_Clients" Association="Self.FK_ToursRating_Clients">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="ToursRating" EntitySet="ToursRating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ToursRating_ReviewType" Association="Self.FK_ToursRating_ReviewType">
+            <End Role="ReviewType" EntitySet="ReviewType" />
+            <End Role="ToursRating" EntitySet="ToursRating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ToursRating_Tours" Association="Self.FK_ToursRating_Tours">
+            <End Role="Tours" EntitySet="Tours" />
+            <End Role="ToursRating" EntitySet="ToursRating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ToursReg_Tours" Association="Self.FK_ToursReg_Tours">
+            <End Role="Tours" EntitySet="Tours" />
+            <End Role="ToursReg" EntitySet="ToursReg" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TourOperatorModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Bascket">
+          <Key>
+            <PropertyRef Name="IdBascket" />
+          </Key>
+          <Property Name="IdBascket" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdClient" Type="Int32" />
+          <Property Name="CodeHotel" Type="Int32" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK_Bascket_Clients" FromRole="Bascket" ToRole="Clients" />
+        </EntityType>
+        <EntityType Name="CarrierCompany">
+          <Key>
+            <PropertyRef Name="IdCarrierCompany" />
+          </Key>
+          <Property Name="IdCarrierCompany" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ServicesCarrierCompany" Relationship="Self.FK_ServicesCarrierCompany_CarrierCompany" FromRole="CarrierCompany" ToRole="ServicesCarrierCompany" />
+        </EntityType>
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="IdClient" />
+          </Key>
+          <Property Name="IdClient" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SecondName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Country" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Bascket" Relationship="Self.FK_Bascket_Clients" FromRole="Clients" ToRole="Bascket" />
+          <NavigationProperty Name="HotelsRating" Relationship="Self.FK_HotelsRating_Clients" FromRole="Clients" ToRole="HotelsRating" />
+          <NavigationProperty Name="PaidServices" Relationship="Self.FK_PaidServices_Clients" FromRole="Clients" ToRole="PaidServices" />
+          <NavigationProperty Name="ServicesRating" Relationship="Self.FK_ServicesRating_Clients" FromRole="Clients" ToRole="ServicesRating" />
+          <NavigationProperty Name="ToursReg" Relationship="Self.FK_Tours_Clients" FromRole="Clients" ToRole="ToursReg" />
+          <NavigationProperty Name="ToursRating" Relationship="Self.FK_ToursRating_Clients" FromRole="Clients" ToRole="ToursRating" />
+        </EntityType>
+        <EntityType Name="HotelInformation">
+          <Key>
+            <PropertyRef Name="IdHotel" />
+          </Key>
+          <Property Name="IdHotel" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HotelName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HotelCountry" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ResortTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HotelDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HotelStar" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="TypeFood" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HotelServices" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HotelRating" Type="Int32" Nullable="false" />
+          <Property Name="Services" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MainPhotoDirectory" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="HotelPhotos" Relationship="Self.FK_HotelPhotos_HotelInformation" FromRole="HotelInformation" ToRole="HotelPhotos" />
+          <NavigationProperty Name="HotelRooms" Relationship="Self.FK_HotelRooms_HotelInformation" FromRole="HotelInformation" ToRole="HotelRooms" />
+          <NavigationProperty Name="HotelsRating" Relationship="Self.FK_HotelsRating_HotelInformation" FromRole="HotelInformation" ToRole="HotelsRating" />
+          <NavigationProperty Name="ToursReg" Relationship="Self.FK_Tours_HotelInformation" FromRole="HotelInformation" ToRole="ToursReg" />
+        </EntityType>
+        <EntityType Name="HotelPhotos">
+          <Key>
+            <PropertyRef Name="IdPhotoDirectory" />
+          </Key>
+          <Property Name="IdPhotoDirectory" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdHotel" Type="Int32" Nullable="false" />
+          <Property Name="PhotoDirectory" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="HotelInformation" Relationship="Self.FK_HotelPhotos_HotelInformation" FromRole="HotelPhotos" ToRole="HotelInformation" />
+        </EntityType>
+        <EntityType Name="HotelRoomPhotos">
+          <Key>
+            <PropertyRef Name="IdPhotoDirectory" />
+          </Key>
+          <Property Name="IdPhotoDirectory" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdHotelRoom" Type="Int32" Nullable="false" />
+          <Property Name="PhotoDirectory" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="HotelRooms" Relationship="Self.FK_HotelRoomPhotos_HotelRooms" FromRole="HotelRoomPhotos" ToRole="HotelRooms" />
+        </EntityType>
+        <EntityType Name="HotelRooms">
+          <Key>
+            <PropertyRef Name="IdHotelRoom" />
+          </Key>
+          <Property Name="IdHotelRoom" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdHotel" Type="Int32" Nullable="false" />
+          <Property Name="RoomNumber" Type="Int32" Nullable="false" />
+          <Property Name="RoomStar" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="CostRoomDay" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="ReservationType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SeatsNumber" Type="Int32" Nullable="false" />
+          <Property Name="Equipment" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="HotelInformation" Relationship="Self.FK_HotelRooms_HotelInformation" FromRole="HotelRooms" ToRole="HotelInformation" />
+          <NavigationProperty Name="HotelRoomPhotos" Relationship="Self.FK_HotelRoomPhotos_HotelRooms" FromRole="HotelRooms" ToRole="HotelRoomPhotos" />
+          <NavigationProperty Name="ToursReg" Relationship="Self.FK_Tours_HotelRooms" FromRole="HotelRooms" ToRole="ToursReg" />
+        </EntityType>
+        <EntityType Name="HotelsRating">
+          <Key>
+            <PropertyRef Name="IdHotelRating" />
+          </Key>
+          <Property Name="IdHotelRating" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdHotel" Type="Int32" Nullable="false" />
+          <Property Name="IdClient" Type="Int32" Nullable="false" />
+          <Property Name="Comment" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="Rating" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="IdReview" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK_HotelsRating_Clients" FromRole="HotelsRating" ToRole="Clients" />
+          <NavigationProperty Name="HotelInformation" Relationship="Self.FK_HotelsRating_HotelInformation" FromRole="HotelsRating" ToRole="HotelInformation" />
+          <NavigationProperty Name="ReviewType" Relationship="Self.FK_HotelsRating_ReviewType" FromRole="HotelsRating" ToRole="ReviewType" />
+        </EntityType>
+        <EntityType Name="InsuranceCompany">
+          <Key>
+            <PropertyRef Name="IdInsuranceCompany" />
+          </Key>
+          <Property Name="IdInsuranceCompany" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ServicesInsuranceCompany" Relationship="Self.FK_ServicesInsuranceCompany_InsuranceCompany" FromRole="InsuranceCompany" ToRole="ServicesInsuranceCompany" />
+        </EntityType>
+        <EntityType Name="PaidServices">
+          <Key>
+            <PropertyRef Name="IdPaidServices" />
+          </Key>
+          <Property Name="IdPaidServices" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdClient" Type="Int32" Nullable="false" />
+          <Property Name="IdIncuranceService" Type="Int32" Nullable="false" />
+          <Property Name="IdCarrierService" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK_PaidServices_Clients" FromRole="PaidServices" ToRole="Clients" />
+          <NavigationProperty Name="ServicesCarrierCompany" Relationship="Self.FK_PaidServices_ServicesCarrierCompany" FromRole="PaidServices" ToRole="ServicesCarrierCompany" />
+          <NavigationProperty Name="ServicesInsuranceCompany" Relationship="Self.FK_PaidServices_ServicesInsuranceCompany" FromRole="PaidServices" ToRole="ServicesInsuranceCompany" />
+          <NavigationProperty Name="ToursReg" Relationship="Self.FK_Tours_PaidServices" FromRole="PaidServices" ToRole="ToursReg" />
+        </EntityType>
+        <EntityType Name="ReviewType">
+          <Key>
+            <PropertyRef Name="IdReview" />
+          </Key>
+          <Property Name="IdReview" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeReview" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="HotelsRating" Relationship="Self.FK_HotelsRating_ReviewType" FromRole="ReviewType" ToRole="HotelsRating" />
+          <NavigationProperty Name="ServicesRating" Relationship="Self.FK_ServicesRating_ReviewType" FromRole="ReviewType" ToRole="ServicesRating" />
+          <NavigationProperty Name="ToursRating" Relationship="Self.FK_ToursRating_ReviewType" FromRole="ReviewType" ToRole="ToursRating" />
+        </EntityType>
+        <EntityType Name="ServicesCarrierCompany">
+          <Key>
+            <PropertyRef Name="IdCarrierService" />
+          </Key>
+          <Property Name="IdCarrierService" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCarrierCompany" Type="Int32" Nullable="false" />
+          <Property Name="Service" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="CarrierCompany" Relationship="Self.FK_ServicesCarrierCompany_CarrierCompany" FromRole="ServicesCarrierCompany" ToRole="CarrierCompany" />
+          <NavigationProperty Name="PaidServices" Relationship="Self.FK_PaidServices_ServicesCarrierCompany" FromRole="ServicesCarrierCompany" ToRole="PaidServices" />
+        </EntityType>
+        <EntityType Name="ServicesInsuranceCompany">
+          <Key>
+            <PropertyRef Name="IdIncuranceService" />
+          </Key>
+          <Property Name="IdIncuranceService" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdInsuranceCompany" Type="Int32" Nullable="false" />
+          <Property Name="Service" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="InsuranceCompany" Relationship="Self.FK_ServicesInsuranceCompany_InsuranceCompany" FromRole="ServicesInsuranceCompany" ToRole="InsuranceCompany" />
+          <NavigationProperty Name="PaidServices" Relationship="Self.FK_PaidServices_ServicesInsuranceCompany" FromRole="ServicesInsuranceCompany" ToRole="PaidServices" />
+        </EntityType>
+        <EntityType Name="ServicesRating">
+          <Key>
+            <PropertyRef Name="IdServiceRating" />
+          </Key>
+          <Property Name="IdServiceRating" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdService" Type="Int32" Nullable="false" />
+          <Property Name="IdClient" Type="Int32" Nullable="false" />
+          <Property Name="Comment" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Rating" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="IdReview" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK_ServicesRating_Clients" FromRole="ServicesRating" ToRole="Clients" />
+          <NavigationProperty Name="ReviewType" Relationship="Self.FK_ServicesRating_ReviewType" FromRole="ServicesRating" ToRole="ReviewType" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Tours">
+          <Key>
+            <PropertyRef Name="IdTour" />
+          </Key>
+          <Property Name="IdTour" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameTour" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="ToursRating" Relationship="Self.FK_ToursRating_Tours" FromRole="Tours" ToRole="ToursRating" />
+          <NavigationProperty Name="ToursReg" Relationship="Self.FK_ToursReg_Tours" FromRole="Tours" ToRole="ToursReg" />
+        </EntityType>
+        <EntityType Name="ToursRating">
+          <Key>
+            <PropertyRef Name="IdTourRating" />
+          </Key>
+          <Property Name="IdTourRating" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdTour" Type="Int32" Nullable="false" />
+          <Property Name="IdClient" Type="Int32" Nullable="false" />
+          <Property Name="Comment" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Rating" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="IdReview" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK_ToursRating_Clients" FromRole="ToursRating" ToRole="Clients" />
+          <NavigationProperty Name="ReviewType" Relationship="Self.FK_ToursRating_ReviewType" FromRole="ToursRating" ToRole="ReviewType" />
+          <NavigationProperty Name="Tours" Relationship="Self.FK_ToursRating_Tours" FromRole="ToursRating" ToRole="Tours" />
+        </EntityType>
+        <EntityType Name="ToursReg">
+          <Key>
+            <PropertyRef Name="IdTour" />
+          </Key>
+          <Property Name="IdTour" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdClient" Type="Int32" Nullable="false" />
+          <Property Name="IdHotel" Type="Int32" Nullable="false" />
+          <Property Name="IdHotelRoom" Type="Int32" Nullable="false" />
+          <Property Name="PeopleNumber" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="DateStart" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DateEnd" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IdPaidServices" Type="Int32" Nullable="false" />
+          <Property Name="TotalCost" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK_Tours_Clients" FromRole="ToursReg" ToRole="Clients" />
+          <NavigationProperty Name="HotelInformation" Relationship="Self.FK_Tours_HotelInformation" FromRole="ToursReg" ToRole="HotelInformation" />
+          <NavigationProperty Name="HotelRooms" Relationship="Self.FK_Tours_HotelRooms" FromRole="ToursReg" ToRole="HotelRooms" />
+          <NavigationProperty Name="PaidServices" Relationship="Self.FK_Tours_PaidServices" FromRole="ToursReg" ToRole="PaidServices" />
+          <NavigationProperty Name="Tours" Relationship="Self.FK_ToursReg_Tours" FromRole="ToursReg" ToRole="Tours" />
+        </EntityType>
+        <Association Name="FK_Bascket_Clients">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Bascket" Type="Self.Bascket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="IdClient" />
+            </Principal>
+            <Dependent Role="Bascket">
+              <PropertyRef Name="IdClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServicesCarrierCompany_CarrierCompany">
+          <End Role="CarrierCompany" Type="Self.CarrierCompany" Multiplicity="1" />
+          <End Role="ServicesCarrierCompany" Type="Self.ServicesCarrierCompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarrierCompany">
+              <PropertyRef Name="IdCarrierCompany" />
+            </Principal>
+            <Dependent Role="ServicesCarrierCompany">
+              <PropertyRef Name="IdCarrierCompany" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HotelsRating_Clients">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="HotelsRating" Type="Self.HotelsRating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="IdClient" />
+            </Principal>
+            <Dependent Role="HotelsRating">
+              <PropertyRef Name="IdClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PaidServices_Clients">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PaidServices" Type="Self.PaidServices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="IdClient" />
+            </Principal>
+            <Dependent Role="PaidServices">
+              <PropertyRef Name="IdClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServicesRating_Clients">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ServicesRating" Type="Self.ServicesRating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="IdClient" />
+            </Principal>
+            <Dependent Role="ServicesRating">
+              <PropertyRef Name="IdClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tours_Clients">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+          <End Role="ToursReg" Type="Self.ToursReg" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="IdClient" />
+            </Principal>
+            <Dependent Role="ToursReg">
+              <PropertyRef Name="IdClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ToursRating_Clients">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ToursRating" Type="Self.ToursRating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="IdClient" />
+            </Principal>
+            <Dependent Role="ToursRating">
+              <PropertyRef Name="IdClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HotelPhotos_HotelInformation">
+          <End Role="HotelInformation" Type="Self.HotelInformation" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="HotelPhotos" Type="Self.HotelPhotos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HotelInformation">
+              <PropertyRef Name="IdHotel" />
+            </Principal>
+            <Dependent Role="HotelPhotos">
+              <PropertyRef Name="IdHotel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HotelRooms_HotelInformation">
+          <End Role="HotelInformation" Type="Self.HotelInformation" Multiplicity="1" />
+          <End Role="HotelRooms" Type="Self.HotelRooms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HotelInformation">
+              <PropertyRef Name="IdHotel" />
+            </Principal>
+            <Dependent Role="HotelRooms">
+              <PropertyRef Name="IdHotel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HotelsRating_HotelInformation">
+          <End Role="HotelInformation" Type="Self.HotelInformation" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="HotelsRating" Type="Self.HotelsRating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HotelInformation">
+              <PropertyRef Name="IdHotel" />
+            </Principal>
+            <Dependent Role="HotelsRating">
+              <PropertyRef Name="IdHotel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tours_HotelInformation">
+          <End Role="HotelInformation" Type="Self.HotelInformation" Multiplicity="1" />
+          <End Role="ToursReg" Type="Self.ToursReg" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HotelInformation">
+              <PropertyRef Name="IdHotel" />
+            </Principal>
+            <Dependent Role="ToursReg">
+              <PropertyRef Name="IdHotel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HotelRoomPhotos_HotelRooms">
+          <End Role="HotelRooms" Type="Self.HotelRooms" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="HotelRoomPhotos" Type="Self.HotelRoomPhotos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HotelRooms">
+              <PropertyRef Name="IdHotelRoom" />
+            </Principal>
+            <Dependent Role="HotelRoomPhotos">
+              <PropertyRef Name="IdHotelRoom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tours_HotelRooms">
+          <End Role="HotelRooms" Type="Self.HotelRooms" Multiplicity="1" />
+          <End Role="ToursReg" Type="Self.ToursReg" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HotelRooms">
+              <PropertyRef Name="IdHotelRoom" />
+            </Principal>
+            <Dependent Role="ToursReg">
+              <PropertyRef Name="IdHotelRoom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HotelsRating_ReviewType">
+          <End Role="ReviewType" Type="Self.ReviewType" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="HotelsRating" Type="Self.HotelsRating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReviewType">
+              <PropertyRef Name="IdReview" />
+            </Principal>
+            <Dependent Role="HotelsRating">
+              <PropertyRef Name="IdReview" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServicesInsuranceCompany_InsuranceCompany">
+          <End Role="InsuranceCompany" Type="Self.InsuranceCompany" Multiplicity="1" />
+          <End Role="ServicesInsuranceCompany" Type="Self.ServicesInsuranceCompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InsuranceCompany">
+              <PropertyRef Name="IdInsuranceCompany" />
+            </Principal>
+            <Dependent Role="ServicesInsuranceCompany">
+              <PropertyRef Name="IdInsuranceCompany" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PaidServices_ServicesCarrierCompany">
+          <End Role="ServicesCarrierCompany" Type="Self.ServicesCarrierCompany" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PaidServices" Type="Self.PaidServices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServicesCarrierCompany">
+              <PropertyRef Name="IdCarrierService" />
+            </Principal>
+            <Dependent Role="PaidServices">
+              <PropertyRef Name="IdCarrierService" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PaidServices_ServicesInsuranceCompany">
+          <End Role="ServicesInsuranceCompany" Type="Self.ServicesInsuranceCompany" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PaidServices" Type="Self.PaidServices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServicesInsuranceCompany">
+              <PropertyRef Name="IdIncuranceService" />
+            </Principal>
+            <Dependent Role="PaidServices">
+              <PropertyRef Name="IdIncuranceService" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tours_PaidServices">
+          <End Role="PaidServices" Type="Self.PaidServices" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ToursReg" Type="Self.ToursReg" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaidServices">
+              <PropertyRef Name="IdPaidServices" />
+            </Principal>
+            <Dependent Role="ToursReg">
+              <PropertyRef Name="IdPaidServices" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServicesRating_ReviewType">
+          <End Role="ReviewType" Type="Self.ReviewType" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ServicesRating" Type="Self.ServicesRating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReviewType">
+              <PropertyRef Name="IdReview" />
+            </Principal>
+            <Dependent Role="ServicesRating">
+              <PropertyRef Name="IdReview" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ToursRating_ReviewType">
+          <End Role="ReviewType" Type="Self.ReviewType" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ToursRating" Type="Self.ToursRating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReviewType">
+              <PropertyRef Name="IdReview" />
+            </Principal>
+            <Dependent Role="ToursRating">
+              <PropertyRef Name="IdReview" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ToursRating_Tours">
+          <End Role="Tours" Type="Self.Tours" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ToursRating" Type="Self.ToursRating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tours">
+              <PropertyRef Name="IdTour" />
+            </Principal>
+            <Dependent Role="ToursRating">
+              <PropertyRef Name="IdTour" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ToursReg_Tours">
+          <End Role="Tours" Type="Self.Tours" Multiplicity="1" />
+          <End Role="ToursReg" Type="Self.ToursReg" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Tours">
+              <PropertyRef Name="IdTour" />
+            </Principal>
+            <Dependent Role="ToursReg">
+              <PropertyRef Name="IdTour" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TourOperatorEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bascket" EntityType="Self.Bascket" />
+          <EntitySet Name="CarrierCompany" EntityType="Self.CarrierCompany" />
+          <EntitySet Name="Clients" EntityType="Self.Clients" />
+          <EntitySet Name="HotelInformation" EntityType="Self.HotelInformation" />
+          <EntitySet Name="HotelPhotos" EntityType="Self.HotelPhotos" />
+          <EntitySet Name="HotelRoomPhotos" EntityType="Self.HotelRoomPhotos" />
+          <EntitySet Name="HotelRooms" EntityType="Self.HotelRooms" />
+          <EntitySet Name="HotelsRating" EntityType="Self.HotelsRating" />
+          <EntitySet Name="InsuranceCompany" EntityType="Self.InsuranceCompany" />
+          <EntitySet Name="PaidServices" EntityType="Self.PaidServices" />
+          <EntitySet Name="ReviewType" EntityType="Self.ReviewType" />
+          <EntitySet Name="ServicesCarrierCompany" EntityType="Self.ServicesCarrierCompany" />
+          <EntitySet Name="ServicesInsuranceCompany" EntityType="Self.ServicesInsuranceCompany" />
+          <EntitySet Name="ServicesRating" EntityType="Self.ServicesRating" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Tours" EntityType="Self.Tours" />
+          <EntitySet Name="ToursRating" EntityType="Self.ToursRating" />
+          <EntitySet Name="ToursReg" EntityType="Self.ToursReg" />
+          <AssociationSet Name="FK_Bascket_Clients" Association="Self.FK_Bascket_Clients">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Bascket" EntitySet="Bascket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServicesCarrierCompany_CarrierCompany" Association="Self.FK_ServicesCarrierCompany_CarrierCompany">
+            <End Role="CarrierCompany" EntitySet="CarrierCompany" />
+            <End Role="ServicesCarrierCompany" EntitySet="ServicesCarrierCompany" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HotelsRating_Clients" Association="Self.FK_HotelsRating_Clients">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="HotelsRating" EntitySet="HotelsRating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PaidServices_Clients" Association="Self.FK_PaidServices_Clients">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="PaidServices" EntitySet="PaidServices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServicesRating_Clients" Association="Self.FK_ServicesRating_Clients">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="ServicesRating" EntitySet="ServicesRating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tours_Clients" Association="Self.FK_Tours_Clients">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="ToursReg" EntitySet="ToursReg" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ToursRating_Clients" Association="Self.FK_ToursRating_Clients">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="ToursRating" EntitySet="ToursRating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HotelPhotos_HotelInformation" Association="Self.FK_HotelPhotos_HotelInformation">
+            <End Role="HotelInformation" EntitySet="HotelInformation" />
+            <End Role="HotelPhotos" EntitySet="HotelPhotos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HotelRooms_HotelInformation" Association="Self.FK_HotelRooms_HotelInformation">
+            <End Role="HotelInformation" EntitySet="HotelInformation" />
+            <End Role="HotelRooms" EntitySet="HotelRooms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HotelsRating_HotelInformation" Association="Self.FK_HotelsRating_HotelInformation">
+            <End Role="HotelInformation" EntitySet="HotelInformation" />
+            <End Role="HotelsRating" EntitySet="HotelsRating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tours_HotelInformation" Association="Self.FK_Tours_HotelInformation">
+            <End Role="HotelInformation" EntitySet="HotelInformation" />
+            <End Role="ToursReg" EntitySet="ToursReg" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HotelRoomPhotos_HotelRooms" Association="Self.FK_HotelRoomPhotos_HotelRooms">
+            <End Role="HotelRooms" EntitySet="HotelRooms" />
+            <End Role="HotelRoomPhotos" EntitySet="HotelRoomPhotos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tours_HotelRooms" Association="Self.FK_Tours_HotelRooms">
+            <End Role="HotelRooms" EntitySet="HotelRooms" />
+            <End Role="ToursReg" EntitySet="ToursReg" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HotelsRating_ReviewType" Association="Self.FK_HotelsRating_ReviewType">
+            <End Role="ReviewType" EntitySet="ReviewType" />
+            <End Role="HotelsRating" EntitySet="HotelsRating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServicesInsuranceCompany_InsuranceCompany" Association="Self.FK_ServicesInsuranceCompany_InsuranceCompany">
+            <End Role="InsuranceCompany" EntitySet="InsuranceCompany" />
+            <End Role="ServicesInsuranceCompany" EntitySet="ServicesInsuranceCompany" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PaidServices_ServicesCarrierCompany" Association="Self.FK_PaidServices_ServicesCarrierCompany">
+            <End Role="ServicesCarrierCompany" EntitySet="ServicesCarrierCompany" />
+            <End Role="PaidServices" EntitySet="PaidServices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PaidServices_ServicesInsuranceCompany" Association="Self.FK_PaidServices_ServicesInsuranceCompany">
+            <End Role="ServicesInsuranceCompany" EntitySet="ServicesInsuranceCompany" />
+            <End Role="PaidServices" EntitySet="PaidServices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tours_PaidServices" Association="Self.FK_Tours_PaidServices">
+            <End Role="PaidServices" EntitySet="PaidServices" />
+            <End Role="ToursReg" EntitySet="ToursReg" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServicesRating_ReviewType" Association="Self.FK_ServicesRating_ReviewType">
+            <End Role="ReviewType" EntitySet="ReviewType" />
+            <End Role="ServicesRating" EntitySet="ServicesRating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ToursRating_ReviewType" Association="Self.FK_ToursRating_ReviewType">
+            <End Role="ReviewType" EntitySet="ReviewType" />
+            <End Role="ToursRating" EntitySet="ToursRating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ToursRating_Tours" Association="Self.FK_ToursRating_Tours">
+            <End Role="Tours" EntitySet="Tours" />
+            <End Role="ToursRating" EntitySet="ToursRating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ToursReg_Tours" Association="Self.FK_ToursReg_Tours">
+            <End Role="Tours" EntitySet="Tours" />
+            <End Role="ToursReg" EntitySet="ToursReg" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище TourOperatorModelContainer" CdmEntityContainer="TourOperatorEntities">
+          <EntitySetMapping Name="Bascket">
+            <EntityTypeMapping TypeName="TourOperatorModel.Bascket">
+              <MappingFragment StoreEntitySet="Bascket">
+                <ScalarProperty Name="IdBascket" ColumnName="IdBascket" />
+                <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+                <ScalarProperty Name="CodeHotel" ColumnName="CodeHotel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarrierCompany">
+            <EntityTypeMapping TypeName="TourOperatorModel.CarrierCompany">
+              <MappingFragment StoreEntitySet="CarrierCompany">
+                <ScalarProperty Name="IdCarrierCompany" ColumnName="IdCarrierCompany" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="TourOperatorModel.Clients">
+              <MappingFragment StoreEntitySet="Clients">
+                <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="SecondName" ColumnName="SecondName" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HotelInformation">
+            <EntityTypeMapping TypeName="TourOperatorModel.HotelInformation">
+              <MappingFragment StoreEntitySet="HotelInformation">
+                <ScalarProperty Name="IdHotel" ColumnName="IdHotel" />
+                <ScalarProperty Name="HotelName" ColumnName="HotelName" />
+                <ScalarProperty Name="HotelCountry" ColumnName="HotelCountry" />
+                <ScalarProperty Name="ResortTitle" ColumnName="ResortTitle" />
+                <ScalarProperty Name="HotelDescription" ColumnName="HotelDescription" />
+                <ScalarProperty Name="HotelStar" ColumnName="HotelStar" />
+                <ScalarProperty Name="TypeFood" ColumnName="TypeFood" />
+                <ScalarProperty Name="HotelServices" ColumnName="HotelServices" />
+                <ScalarProperty Name="HotelRating" ColumnName="HotelRating" />
+                <ScalarProperty Name="Services" ColumnName="Services" />
+                <ScalarProperty Name="MainPhotoDirectory" ColumnName="MainPhotoDirectory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HotelPhotos">
+            <EntityTypeMapping TypeName="TourOperatorModel.HotelPhotos">
+              <MappingFragment StoreEntitySet="HotelPhotos">
+                <ScalarProperty Name="IdPhotoDirectory" ColumnName="IdPhotoDirectory" />
+                <ScalarProperty Name="IdHotel" ColumnName="IdHotel" />
+                <ScalarProperty Name="PhotoDirectory" ColumnName="PhotoDirectory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HotelRoomPhotos">
+            <EntityTypeMapping TypeName="TourOperatorModel.HotelRoomPhotos">
+              <MappingFragment StoreEntitySet="HotelRoomPhotos">
+                <ScalarProperty Name="IdPhotoDirectory" ColumnName="IdPhotoDirectory" />
+                <ScalarProperty Name="IdHotelRoom" ColumnName="IdHotelRoom" />
+                <ScalarProperty Name="PhotoDirectory" ColumnName="PhotoDirectory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HotelRooms">
+            <EntityTypeMapping TypeName="TourOperatorModel.HotelRooms">
+              <MappingFragment StoreEntitySet="HotelRooms">
+                <ScalarProperty Name="IdHotelRoom" ColumnName="IdHotelRoom" />
+                <ScalarProperty Name="IdHotel" ColumnName="IdHotel" />
+                <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
+                <ScalarProperty Name="RoomStar" ColumnName="RoomStar" />
+                <ScalarProperty Name="CostRoomDay" ColumnName="CostRoomDay" />
+                <ScalarProperty Name="ReservationType" ColumnName="ReservationType" />
+                <ScalarProperty Name="SeatsNumber" ColumnName="SeatsNumber" />
+                <ScalarProperty Name="Equipment" ColumnName="Equipment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HotelsRating">
+            <EntityTypeMapping TypeName="TourOperatorModel.HotelsRating">
+              <MappingFragment StoreEntitySet="HotelsRating">
+                <ScalarProperty Name="IdHotelRating" ColumnName="IdHotelRating" />
+                <ScalarProperty Name="IdHotel" ColumnName="IdHotel" />
+                <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="IdReview" ColumnName="IdReview" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InsuranceCompany">
+            <EntityTypeMapping TypeName="TourOperatorModel.InsuranceCompany">
+              <MappingFragment StoreEntitySet="InsuranceCompany">
+                <ScalarProperty Name="IdInsuranceCompany" ColumnName="IdInsuranceCompany" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaidServices">
+            <EntityTypeMapping TypeName="TourOperatorModel.PaidServices">
+              <MappingFragment StoreEntitySet="PaidServices">
+                <ScalarProperty Name="IdPaidServices" ColumnName="IdPaidServices" />
+                <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+                <ScalarProperty Name="IdIncuranceService" ColumnName="IdIncuranceService" />
+                <ScalarProperty Name="IdCarrierService" ColumnName="IdCarrierService" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReviewType">
+            <EntityTypeMapping TypeName="TourOperatorModel.ReviewType">
+              <MappingFragment StoreEntitySet="ReviewType">
+                <ScalarProperty Name="IdReview" ColumnName="IdReview" />
+                <ScalarProperty Name="TypeReview" ColumnName="TypeReview" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServicesCarrierCompany">
+            <EntityTypeMapping TypeName="TourOperatorModel.ServicesCarrierCompany">
+              <MappingFragment StoreEntitySet="ServicesCarrierCompany">
+                <ScalarProperty Name="IdCarrierService" ColumnName="IdCarrierService" />
+                <ScalarProperty Name="IdCarrierCompany" ColumnName="IdCarrierCompany" />
+                <ScalarProperty Name="Service" ColumnName="Service" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServicesInsuranceCompany">
+            <EntityTypeMapping TypeName="TourOperatorModel.ServicesInsuranceCompany">
+              <MappingFragment StoreEntitySet="ServicesInsuranceCompany">
+                <ScalarProperty Name="IdIncuranceService" ColumnName="IdIncuranceService" />
+                <ScalarProperty Name="IdInsuranceCompany" ColumnName="IdInsuranceCompany" />
+                <ScalarProperty Name="Service" ColumnName="Service" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServicesRating">
+            <EntityTypeMapping TypeName="TourOperatorModel.ServicesRating">
+              <MappingFragment StoreEntitySet="ServicesRating">
+                <ScalarProperty Name="IdServiceRating" ColumnName="IdServiceRating" />
+                <ScalarProperty Name="IdService" ColumnName="IdService" />
+                <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="IdReview" ColumnName="IdReview" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="TourOperatorModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tours">
+            <EntityTypeMapping TypeName="TourOperatorModel.Tours">
+              <MappingFragment StoreEntitySet="Tours">
+                <ScalarProperty Name="IdTour" ColumnName="IdTour" />
+                <ScalarProperty Name="NameTour" ColumnName="NameTour" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ToursRating">
+            <EntityTypeMapping TypeName="TourOperatorModel.ToursRating">
+              <MappingFragment StoreEntitySet="ToursRating">
+                <ScalarProperty Name="IdTourRating" ColumnName="IdTourRating" />
+                <ScalarProperty Name="IdTour" ColumnName="IdTour" />
+                <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="IdReview" ColumnName="IdReview" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ToursReg">
+            <EntityTypeMapping TypeName="TourOperatorModel.ToursReg">
+              <MappingFragment StoreEntitySet="ToursReg">
+                <ScalarProperty Name="IdTour" ColumnName="IdTour" />
+                <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+                <ScalarProperty Name="IdHotel" ColumnName="IdHotel" />
+                <ScalarProperty Name="IdHotelRoom" ColumnName="IdHotelRoom" />
+                <ScalarProperty Name="PeopleNumber" ColumnName="PeopleNumber" />
+                <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+                <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
+                <ScalarProperty Name="IdPaidServices" ColumnName="IdPaidServices" />
+                <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

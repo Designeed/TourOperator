@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a51b8212c67d402cb533ddc9d631de43" Name="Diagram1">
+        <EntityTypeShape EntityType="TourOperatorModel.Bascket" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourOperatorModel.CarrierCompany" Width="1.5" PointX="1.5" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourOperatorModel.Clients" Width="1.5" PointX="0.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourOperatorModel.HotelInformation" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourOperatorModel.HotelPhotos" Width="1.5" PointX="3" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourOperatorModel.HotelRoomPhotos" Width="1.5" PointX="5.25" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourOperatorModel.HotelRooms" Width="1.5" PointX="3" PointY="27.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourOperatorModel.HotelsRating" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourOperatorModel.InsuranceCompany" Width="1.5" PointX="1.5" PointY="24.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourOperatorModel.PaidServices" Width="1.5" PointX="3" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourOperatorModel.ReviewType" Width="1.5" PointX="3.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourOperatorModel.ServicesCarrierCompany" Width="1.5" PointX="0.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourOperatorModel.ServicesInsuranceCompany" Width="1.5" PointX="0.75" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourOperatorModel.ServicesRating" Width="1.5" PointX="6" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourOperatorModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourOperatorModel.Tours" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourOperatorModel.ToursRating" Width="1.5" PointX="6" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourOperatorModel.ToursReg" Width="1.5" PointX="5.25" PointY="13.875" IsExpanded="true" />
+        <AssociationConnector Association="TourOperatorModel.FK_Bascket_Clients" ManuallyRouted="false" />
+        <AssociationConnector Association="TourOperatorModel.FK_ServicesCarrierCompany_CarrierCompany" ManuallyRouted="false" />
+        <AssociationConnector Association="TourOperatorModel.FK_HotelsRating_Clients" ManuallyRouted="false" />
+        <AssociationConnector Association="TourOperatorModel.FK_PaidServices_Clients" ManuallyRouted="false" />
+        <AssociationConnector Association="TourOperatorModel.FK_ServicesRating_Clients" ManuallyRouted="false" />
+        <AssociationConnector Association="TourOperatorModel.FK_Tours_Clients" ManuallyRouted="false" />
+        <AssociationConnector Association="TourOperatorModel.FK_ToursRating_Clients" ManuallyRouted="false" />
+        <AssociationConnector Association="TourOperatorModel.FK_HotelPhotos_HotelInformation" ManuallyRouted="false" />
+        <AssociationConnector Association="TourOperatorModel.FK_HotelRooms_HotelInformation" ManuallyRouted="false" />
+        <AssociationConnector Association="TourOperatorModel.FK_HotelsRating_HotelInformation" ManuallyRouted="false" />
+        <AssociationConnector Association="TourOperatorModel.FK_Tours_HotelInformation" ManuallyRouted="false" />
+        <AssociationConnector Association="TourOperatorModel.FK_HotelRoomPhotos_HotelRooms" ManuallyRouted="false" />
+        <AssociationConnector Association="TourOperatorModel.FK_Tours_HotelRooms" ManuallyRouted="false" />
+        <AssociationConnector Association="TourOperatorModel.FK_HotelsRating_ReviewType" ManuallyRouted="false" />
+        <AssociationConnector Association="TourOperatorModel.FK_ServicesInsuranceCompany_InsuranceCompany" ManuallyRouted="false" />
+        <AssociationConnector Association="TourOperatorModel.FK_PaidServices_ServicesCarrierCompany" ManuallyRouted="false" />
+        <AssociationConnector Association="TourOperatorModel.FK_PaidServices_ServicesInsuranceCompany" ManuallyRouted="false" />
+        <AssociationConnector Association="TourOperatorModel.FK_Tours_PaidServices" ManuallyRouted="false" />
+        <AssociationConnector Association="TourOperatorModel.FK_ServicesRating_ReviewType" ManuallyRouted="false" />
+        <AssociationConnector Association="TourOperatorModel.FK_ToursRating_ReviewType" ManuallyRouted="false" />
+        <AssociationConnector Association="TourOperatorModel.FK_ToursRating_Tours" ManuallyRouted="false" />
+        <AssociationConnector Association="TourOperatorModel.FK_ToursReg_Tours" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
